@@ -1,0 +1,45 @@
+<h1>Task Manager</h1>
+
+<form [formGroup]="taskForm" (ngSubmit)="createTask()" class="wrapper-form horizontal-form">
+  <mat-form-field class="form-field">
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" placeholder="Ex. Title" />
+  </mat-form-field>
+
+  <mat-form-field class="form-field">
+    <mat-label>Description</mat-label>
+    <input matInput formControlName="description" placeholder="Ex. Add ticket to JIRA" />
+  </mat-form-field>
+
+  <mat-form-field class="form-field">
+    <mat-label>Choose a due date</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="dueDate" />
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field class="form-field">
+    <mat-label>Status</mat-label>
+    <mat-select formControlName="status">
+      <mat-option *ngFor="let status of statuses" [value]="status.value">
+        {{ status.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="example-button-row">
+    <button mat-raised-button color="primary" type="submit" [disabled]="taskForm.invalid">
+      Add Task
+    </button>
+  </div>
+</form>
+
+<!-- Display tasks -->
+<ul>
+  <li *ngFor="let task of tasks">
+    <strong>{{ task.title }}</strong> ({{ task.status }}) —
+    {{ task.dueDate | date: 'dd/MM/yy' }}<br />
+    <em *ngIf="task.description">{{ task.description }}</em>
+    <button mat-button color="warn" (click)="deleteTask(task.id!)">Delete</button>
+  </li>
+</ul>
