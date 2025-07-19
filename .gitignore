@@ -1,0 +1,51 @@
+# .NET Core
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vsp
+
+# ASP.NET Core secrets
+*.db
+*.sqlite
+*.db-shm
+*.db-wal
+
+# Visual Studio Code
+.vscode/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+
+# Angular
+**/node_modules/
+**/dist/
+**/.angular/
+
+# Build artifacts
+*.dll
+*.exe
+*.app
+*.pdb
+
+# Test results
+TestResults/
+*.TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Environment
+.env
+.env.*
+
+# OS-specific files
+.DS_Store
+Thumbs.db

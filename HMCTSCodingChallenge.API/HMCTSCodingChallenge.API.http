@@ -1,0 +1,6 @@
+@HMCTSCodingChallenge.API_HostAddress = http://localhost:5209
+
+GET {{HMCTSCodingChallenge.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
